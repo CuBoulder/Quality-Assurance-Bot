@@ -15,17 +15,6 @@ var links = fs
   .map((e) => e.trim());
 
 for (const link of links) {
-  test("basic test " + link, async ({ page }) => {
-    await page.goto(link);
-    const logo = page.locator(".page-title");
-    await expect(logo).toHaveText("Continuing Education Catalog");
-  });
-
-  test("basic test fail " + link, async ({ page }) => {
-    await page.goto(link);
-    const logo = page.locator(".page-title");
-    await expect(logo).toHaveText("Contining Education Catalog");
-  });
 
   test("simple accessibility run " + link, async ({ page }) => {
     await page.goto(link);
