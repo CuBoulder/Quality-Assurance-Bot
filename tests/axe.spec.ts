@@ -1,7 +1,6 @@
 import { test, expect, Page } from "@playwright/test";
 import * as fs from "fs";
 import * as path from "path";
-import { HomePage } from "../pages/homepage.page";
 import {
   injectAxe,
   checkA11y,
