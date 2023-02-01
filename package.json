@@ -11,7 +11,9 @@
     "@playwright/test": "^1.22.1",
     "@types/node": "^17.0.43",
     "axe-playwright": "^1.1.11",
-    "playwright": "^1.22.2"
+    "lighthouse": "^9.6.8",
+    "playwright": "^1.30.0",
+    "playwright-lighthouse": "^2.2.2"
   },
   "dependencies": {
     "dotenv": "^16.0.3",

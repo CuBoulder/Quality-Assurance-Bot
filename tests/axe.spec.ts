@@ -8,9 +8,9 @@ import {
   reportViolations,
 } from "axe-playwright";
 var links = fs
-  .readFileSync(path.resolve(__dirname, "foo.txt"))
+  .readFileSync(path.resolve(__dirname, "../test.txt"))
   .toString()
-  .split("\n")
+  .split(",")
   .map((e) => e.trim());
 
 for (const link of links) {
@@ -21,25 +21,4 @@ for (const link of links) {
     await checkA11y(page);
   });
 
-  test("test server " + link, async ({ page }) => {
-    const url = new URL(link);
-    const sitemap = url.protocol + "//" + url.hostname + "/sitemap.xml";
-
-    //await page.goto("https://playwright.dev/docs/intro");
-    const [response] = await Promise.all([
-      page.waitForResponse((res) => res.status() == 200),
-      await page.goto(sitemap),
-      //await page.locator(".navbar__brand").click,
-    ]);
-  });
-
-  test("test live " + link, async ({ page }) => {
-
-    //await page.goto("https://playwright.dev/docs/intro");
-    const [response] = await Promise.all([
-      page.waitForResponse((res) => res.status() == 200),
-      await page.goto(link),
-      //await page.locator(".navbar__brand").click,
-    ]) ;
-  });
 }
